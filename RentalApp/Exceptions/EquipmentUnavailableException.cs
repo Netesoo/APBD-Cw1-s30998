@@ -1,3 +1,3 @@
 namespace RentalApp.Exceptions;
 
-public class EquipmentUnavailableException(int equipmentId) : Exception($"{equipmentId} is not available.");
+public class EquipmentUnavailableException(int equipmentId) : Exception($"Equipment id: {equipmentId} is not available.");
