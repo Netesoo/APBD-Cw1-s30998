@@ -1,3 +1,5 @@
+using RentalApp.Exceptions;
+
 namespace RentalApp.Models;
 
 public class Rental(User user, Equipment equipment, DateTime date, DateTime planedReturnDate)
@@ -18,10 +20,7 @@ public class Rental(User user, Equipment equipment, DateTime date, DateTime plan
     
     public void MarkAsReturned(DateTime returnDate)
     {
-        if (!IsActive)
-        {
-            throw new InvalidOperationException("Ten sprzęt został już wcześniej zwrócony.");
-        }
+        if (!IsActive) throw new RentalAvailableException(this.Id);
         
         ReturnDate = returnDate;
     }
