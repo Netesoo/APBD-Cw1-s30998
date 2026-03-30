@@ -12,7 +12,9 @@ public class Rental(User user, Equipment equipment, DateTime date, DateTime plan
     
     public DateTime?  ReturnDate { get; private set; }
     public bool IsActive => ReturnDate == null;
-    public bool IsOverdue => IsActive && DateTime.Now < PlannedReturnDate;
+    public bool IsOverdue => IsActive 
+        ? DateTime.Now > PlannedReturnDate 
+        : Date> PlannedReturnDate;    
     
     public void MarkAsReturned(DateTime returnDate)
     {
