@@ -47,7 +47,7 @@ namespace RentalApp
             }
             catch (Exception ex) 
             { 
-                Console.WriteLine($"[ERROR] {ex.Message}"); 
+                Console.WriteLine(ex.Message); 
             }
             
             // Attempt to rent unavailable equipment
@@ -57,20 +57,20 @@ namespace RentalApp
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ERROR] {ex.Message}");
+                Console.WriteLine(ex.Message);
             }
 
             // Attempt to exceed the rental limit by a student
             try
             {
                 rentalService.RentEquipment(student.Id, projector.Id, 1);
-                Console.WriteLine($"{student.FName} rented {projector.Name}. (Active: 2/2)");
+                Console.WriteLine($"{student.FName} rented {projector.Name}.");
                 
                 rentalService.RentEquipment(student.Id, camera.Id, 1);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ERROR] {ex.Message}");
+                Console.WriteLine(ex.Message);
             }
 
             // Returning equipment on time
@@ -84,7 +84,7 @@ namespace RentalApp
             }
             catch (Exception ex) 
             { 
-                Console.WriteLine($"[ERROR] {ex.Message}"); 
+                Console.WriteLine(ex.Message); 
             }
 
             // Returning equipment late
@@ -99,7 +99,7 @@ namespace RentalApp
             }
             catch (Exception ex) 
             { 
-                Console.WriteLine($"[ERROR] {ex.Message}"); 
+                Console.WriteLine(ex.Message); 
             }
 
             Console.WriteLine("\nRENTAL HISTORY:");
